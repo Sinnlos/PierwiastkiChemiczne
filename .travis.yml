@@ -1,4 +1,4 @@
 language: java
 script:
-- cd nieumarli
+- cd pierchem-app
 - mvn clean test
