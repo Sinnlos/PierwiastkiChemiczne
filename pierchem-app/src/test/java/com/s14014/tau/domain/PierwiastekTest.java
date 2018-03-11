@@ -10,11 +10,12 @@ import org.junit.Test;
 public class PierwiastekTest {
 
     PierwiastekRepository pierwiastekRepository;
+    Pierwiastek pierwiastek = new Pierwiastek(1, "wodór", 1, 1, 1);
 
 
     @Test
     public void dodawanieTest(){
-        Pierwiastek pierwiastek = new Pierwiastek(1, "wodór", 1, 1, 1);
+        
 
         pierwiastekRepository.add(pierwiastek);
         assertNotNull(pierwiastekRepository.getById(pierwiastek.getId()));
