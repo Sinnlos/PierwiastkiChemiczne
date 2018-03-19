@@ -3,11 +3,11 @@ package com.s14014.tau.domain;
 
 public class Pierwiastek {
 
-    public int id;
-    public String nazwa;
-    public int nrOkresu;
-    public int nrGrupy;
-    public int liczbaElektronow;
+    private  int id;
+    private  String nazwa;
+    private  int nrOkresu;
+    private  int nrGrupy;
+    private  int liczbaElektronow;
     
     
     public int getId() {
@@ -50,13 +50,19 @@ public class Pierwiastek {
         this.liczbaElektronow = liczbaElektronow;
     }
 
-    public Pierwiastek(int id, String nazwa, int nrOkresu, int nrGrupy, int liczbaElektronow){
+    
+
+	public Pierwiastek(int id, String nazwa, int nrOkresu, int nrGrupy, int liczbaElektronow) {
+
         this.id = id;
         this.nazwa = nazwa;
-        this.nrGrupy = nrGrupy;
         this.nrOkresu = nrOkresu;
+        this.nrGrupy = nrGrupy;
         this.liczbaElektronow = liczbaElektronow;
-    }
+	}
+
+	public Pierwiastek() {
+	}
 
     /*public void przepiszElektrony(){
 

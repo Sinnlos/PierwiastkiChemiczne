@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.s14014.tau.domain.PierwiastekTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.028 sec <<< FAILURE! - in com.s14014.tau.domain.PierwiastekTest
+addTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.009 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+
+findTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+
+updateTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+
+getAllTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+
+deleteTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.004 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+
