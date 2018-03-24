@@ -1,24 +1,24 @@
 -------------------------------------------------------------------------------
 Test set: com.s14014.tau.domain.PierwiastekTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.028 sec <<< FAILURE! - in com.s14014.tau.domain.PierwiastekTest
-addTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.009 sec  <<< ERROR!
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.023 sec <<< FAILURE! - in com.s14014.tau.domain.PierwiastekTest
+addTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.007 sec  <<< ERROR!
 java.lang.NullPointerException: null
-	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:95)
 
 findTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: null
-	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:95)
 
-updateTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0 sec  <<< ERROR!
+updateTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: null
-	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:95)
 
-getAllTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0 sec  <<< ERROR!
+getAllTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: null
-	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:95)
 
-deleteTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.004 sec  <<< ERROR!
+deleteTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.NullPointerException: null
-	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:94)
+	at com.s14014.tau.domain.PierwiastekTest.initRepository(PierwiastekTest.java:95)
 

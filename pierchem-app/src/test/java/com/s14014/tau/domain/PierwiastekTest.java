@@ -22,6 +22,7 @@ public class PierwiastekTest {
     public void addTest(){
         
         Pierwiastek pierwiastek = new Pierwiastek();
+        pierwiastek.setId(2);
         pierwiastek.setNazwa("Lit");
         pierwiastek.setNrGrupy(1);
         pierwiastek.setNrOkresu(2);
@@ -43,7 +44,7 @@ public class PierwiastekTest {
         assertEquals(pierwiastekRepository.getPierwiastekById(1).getNazwa(), pierwiastekToUpdate.getNazwa());
         assertThat(pierwiastekToUpdate.getNazwa(), is("Wodór"));
 
-        Pierwiastek pierwiastek = pierwiastekRepository.getPierwiastekById(6);
+        Pierwiastek pierwiastek = pierwiastekRepository.getPierwiastekById(3);
         assertThat(pierwiastek.getNazwa(), not("Wodór"));
     }
 
@@ -87,7 +88,7 @@ public class PierwiastekTest {
     
     @Before
     public void initRepository(){
-        Pierwiastek wodor = new Pierwiastek(1, "wodów", 1, 1, 1);
+        Pierwiastek wodor = new Pierwiastek(1, "wodór", 1, 1, 1);
         Pierwiastek hel = new Pierwiastek(2, "hel", 1, 18, 2);
         Pierwiastek lit = new Pierwiastek(3, "lit", 2, 1, 1);
 
