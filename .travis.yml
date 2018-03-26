@@ -1,3 +1,5 @@
 language: java
 script:
+- cd pierchem-app; bash scripts/server.sh
 - cd pierchem-app; mvn test
+
