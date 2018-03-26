@@ -77,6 +77,7 @@ public class PierwiastekManagerImpl implements IPierwiastekRepository{
         updatePierwiastekStmt = connection.
         prepareStatement("UPDATE Pierwiastek SET nazwa = ?, nrOkresu = ?, nrGrupy = ?, liczbaElektronow = ? WHERE id = ?");
 
+
         deletePierwiastekStmt = connection.
         prepareStatement("DELETE FROM Pierwiastek WHERE id=?");
 
@@ -189,6 +190,7 @@ public class PierwiastekManagerImpl implements IPierwiastekRepository{
 
 	@Override
 	public Pierwiastek getPierwiastekById(int id) {
+
         Pierwiastek pierwiastek = new Pierwiastek();
         
         try{
