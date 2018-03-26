@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.*;
 import java.util.List;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import com.s14014.tau.repository.*;
@@ -41,8 +42,13 @@ public class PierwiastekTest {
         pierwiastekToUpdate.setNazwa("siarka");
         pierwiastekRepository.updateById(pierwiastekToUpdate);
 
-        assertEquals(pierwiastekRepository.getPierwiastekById(3).getNazwa(), pierwiastekToUpdate.getNazwa());
+      //  assertEquals(pierwiastekRepository.getPierwiastekById(3).getNazwa(), pierwiastekToUpdate.getNazwa());
+
+
+        assertThat(pierwiastekRepository.getPierwiastekById(3).getNazwa(), is(pierwiastekToUpdate.getNazwa()));
         assertNotNull(pierwiastekRepository.getPierwiastekById(1));
+
+        assertFalse("nie powinno mody..",pierwiastekRepository.getPierwiastekById(2).getNazwa().equals(pierwiastekToUpdate.getNazwa()));
 
 
     }
@@ -52,7 +58,9 @@ public class PierwiastekTest {
        Pierwiastek pierwiastek = pierwiastekRepository.getPierwiastekById(2);
 
         assertNotNull(pierwiastek);
-        assertEquals("lit", pierwiastekRepository.getPierwiastekById(2).getNazwa());
+      //  assertEquals("lit", pierwiastekRepository.getPierwiastekById(2).getNazwa());
+          assertThat("lit", is(pierwiastekRepository.getPierwiastekById(2).getNazwa()));
+
     }
 
     @Test
@@ -100,6 +108,11 @@ public class PierwiastekTest {
         pierwiastekRepository.add(lit);
         pierwiastekRepository.add(magnez);
         pierwiastekRepository.add(siarka);
+    }
+
+    @After
+    public void dropRepository(){
+        pierwiastekRepository.dropTable();
     }
 
 
