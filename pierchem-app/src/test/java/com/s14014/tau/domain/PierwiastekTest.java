@@ -7,18 +7,180 @@ import static org.hamcrest.CoreMatchers.*;
 
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import com.s14014.tau.repository.*;
 
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import org.mockito.InOrder;
+import org.mockito.Mock;
+import java.sql.*;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import static org.mockito.AdditionalMatchers.gt;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.*;
+
+@RunWith(MockitoJUnitRunner.class)
 public class PierwiastekTest {
 
     IPierwiastekRepository pierwiastekRepository;
 
 
 
+    @Mock
+    Connection connectionMock;
+
+    @Mock
+    IPierwiastekRepository pierwiastekRepositoryMock;
+
+    @Mock
+    PreparedStatement addStmtMock;
+    @Mock
+    PreparedStatement getByIdStmtMock;
+    @Mock
+    PreparedStatement getAllStmtMock;
+    @Mock
+    PreparedStatement deleteStmtMock;
+    @Mock
+    PreparedStatement updateStmtMock;
+    @Mock
+    PreparedStatement dropStmtMock;
+
+
+
+    @Before
+    public void setupDatabase() throws SQLException{
+
+        when(connectionMock.prepareStatement("INSERT INTO Pierwiastek (nazwa, nrOkresu, nrGrupy, liczbaElektronow) VALUES (?, ?, ?, ?)"))
+                .thenReturn(addStmtMock);
+        when(connectionMock.prepareStatement("SELECT * FROM Pierwiastek WHERE id = ?"))
+                .thenReturn(getByIdStmtMock);
+        when(connectionMock.prepareStatement("SELECT * FROM Pierwiastek"))
+                .thenReturn(getAllStmtMock);
+        when(connectionMock.prepareStatement("UPDATE Pierwiastek SET nazwa = ?, nrOkresu = ?, nrGrupy = ?, liczbaElektronow = ? WHERE id = ?"))
+                .thenReturn(updateStmtMock);
+        when(connectionMock.prepareStatement("DELETE FROM Pierwiastek WHERE id=?"))
+                .thenReturn(deleteStmtMock);
+        when(connectionMock.prepareStatement("DROP TABLE Pierwiastek"))
+                .thenReturn(dropStmtMock);
+
+        pierwiastekRepository = new PierwiastekManagerImpl();
+        pierwiastekRepositoryMock = mock(PierwiastekManagerImpl.class);
+        pierwiastekRepository.setConnection(connectionMock);
+
+        verify(connectionMock).prepareStatement("INSERT INTO Pierwiastek (nazwa, nrOkresu, nrGrupy, liczbaElektronow) VALUES (?, ?, ?, ?)");
+        verify(connectionMock).prepareStatement("SELECT * FROM Pierwiastek WHERE id = ?");
+        verify(connectionMock).prepareStatement("SELECT * FROM Pierwiastek");
+        verify(connectionMock).prepareStatement("UPDATE Pierwiastek SET nazwa = ?, nrOkresu = ?, nrGrupy = ?, liczbaElektronow = ? WHERE id = ?");
+        verify(connectionMock).prepareStatement("DELETE FROM Pierwiastek WHERE id=?");
+        verify(connectionMock).prepareStatement("DROP TABLE Pierwiastek");
+
+
+    }
+
+    @Test
+    public void addTestMock() throws Exception{
+
+        when(addStmtMock.executeUpdate()).thenReturn(1);
+
+        Pierwiastek pierwiastek = new Pierwiastek();
+        pierwiastek.setNazwa("Tlen");
+        pierwiastek.setNrOkresu(2);
+        pierwiastek.setNrGrupy(16);
+        pierwiastek.setLiczbaElektronow(6);
+
+        assertEquals(1, pierwiastekRepository.add(pierwiastek));
+
+        verify(addStmtMock, times(1)).setString(1,"Tlen");
+        verify(addStmtMock, times(1)).setInt(2, 2);
+        verify(addStmtMock, times(1)).setInt(3, 16);
+        verify(addStmtMock, times(1)).setInt(4, 6);
+        verify(addStmtMock).executeUpdate();
+    }
+
+  /*  @Test
+    public void addOrderTestMock() throws Exception{
+
+        InOrder inorder = inOrder(addStmtMock);
+        when(addStmtMock.executeUpdate()).thenReturn(1);
+
+        Pierwiastek pierwiastek = new Pierwiastek();
+        pierwiastek.setNazwa("Tlen");
+        pierwiastek.setNrOkresu(2);
+        pierwiastek.setNrGrupy(16);
+        pierwiastek.setLiczbaElektronow(6);
+
+        inorder.verify(addStmtMock, times(1)).setString(1,"Tlen");
+        inorder.verify(addStmtMock, times(1)).setInt(2, 2);
+        inorder.verify(addStmtMock, times(1)).setInt(3, 16);
+        inorder.verify(addStmtMock, times(1)).setInt(4, 6);
+    }
+
+    */
+
+    @Test(expected = IllegalStateException.class)
+    public void nullAddingTest() throws SQLException{
+
+        when(addStmtMock.executeUpdate()).thenThrow(new SQLException());
+
+        Pierwiastek pierwiastek = new Pierwiastek();
+        pierwiastek.setNazwa(null);
+        pierwiastek.setNrOkresu(2);
+        pierwiastek.setNrGrupy(16);
+        pierwiastek.setLiczbaElektronow(6);
+
+        assertEquals(1, pierwiastekRepository.add(pierwiastek));
+    }
+
+    @Test
+    public void deleteTestMock() throws SQLException{
+
+        when(deleteStmtMock.executeUpdate()).thenReturn(1);
+        assertEquals(1, pierwiastekRepository.deleteById(1));
+
+    }
+
+    @Test
+    public void updateTestMock() throws SQLException{
+
+        Pierwiastek pierwiastek1 = new Pierwiastek();
+        pierwiastek1.setNazwa("Wapn");
+        pierwiastek1.setNrOkresu(4);
+        pierwiastek1.setNrGrupy(2);
+        pierwiastek1.setLiczbaElektronow(2);
+
+        doReturn(pierwiastek1).when(pierwiastekRepositoryMock).getPierwiastekById(isA(Integer.class));
+        Pierwiastek pierwiastekToUpdate = pierwiastekRepositoryMock.getPierwiastekById(1);
+        pierwiastekToUpdate.setNazwa("Hel");
+        pierwiastekRepository.updateById(pierwiastekToUpdate);
+
+        Pierwiastek pierwiastek2 = new Pierwiastek();
+        pierwiastek1.setNazwa("Potas");
+        pierwiastek1.setNrOkresu(4);
+        pierwiastek1.setNrGrupy(2);
+        pierwiastek1.setLiczbaElektronow(2);
+
+        doReturn(pierwiastek2).when(pierwiastekRepositoryMock).getPierwiastekById(2);
+
+        assertThat(pierwiastekRepositoryMock.getPierwiastekById(2).getNazwa(), is(pierwiastekToUpdate.getNazwa()));
+        assertEquals(pierwiastekRepositoryMock.getPierwiastekById(2).getNazwa(), pierwiastekToUpdate.getNazwa());
+
+        verify(updateStmtMock, times(1)).setString(1, "Potas");
+        verify(updateStmtMock, times(1)).setInt(2, 4);
+        verify(updateStmtMock, times(1)).setInt(2, 2);
+        verify(updateStmtMock, times(1)).setInt(2, 2);
+        verify(updateStmtMock).executeUpdate();
+
+    }
+
+
+
+
+
+
+    @Ignore
     @Test
     public void addTest(){
         
@@ -35,6 +197,7 @@ public class PierwiastekTest {
 
     }
 
+    @Ignore
     @Test
     public void updateTest(){
         Pierwiastek pierwiastekToUpdate = pierwiastekRepository.getPierwiastekById(3);
@@ -53,6 +216,7 @@ public class PierwiastekTest {
 
     }
 
+    @Ignore
     @Test
     public void findTest(){
        Pierwiastek pierwiastek = pierwiastekRepository.getPierwiastekById(2);
@@ -63,6 +227,7 @@ public class PierwiastekTest {
 
     }
 
+    @Ignore
     @Test
     public void getAllTest(){
         List<Pierwiastek> tabMendelejewa = pierwiastekRepository.getAllPierwiastki();
@@ -80,6 +245,7 @@ public class PierwiastekTest {
         }
     }
 
+    @Ignore
     @Test
     public void deleteTest(){
 
@@ -92,7 +258,7 @@ public class PierwiastekTest {
         assertEquals(true, !pierwiastki.isEmpty());
     }
 
-    
+    @Ignore
     @Before
     public void initRepository(){
        pierwiastekRepository = PierwiastekRepositoryFactory.getInstance();
@@ -110,6 +276,7 @@ public class PierwiastekTest {
         pierwiastekRepository.add(siarka);
     }
 
+    @Ignore
     @After
     public void dropRepository(){
         pierwiastekRepository.dropTable();

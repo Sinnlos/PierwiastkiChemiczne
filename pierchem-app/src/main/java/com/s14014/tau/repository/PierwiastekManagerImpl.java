@@ -34,6 +34,11 @@ public class PierwiastekManagerImpl implements IPierwiastekRepository{
         }
     }
 
+    public PierwiastekManagerImpl() {
+
+    }
+
+
     public void createTables() throws SQLException{
         connection.createStatement().executeUpdate(
             "CREATE TABLE " + 
