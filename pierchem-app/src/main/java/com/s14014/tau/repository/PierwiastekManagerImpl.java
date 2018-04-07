@@ -102,7 +102,7 @@ public class PierwiastekManagerImpl implements IPierwiastekRepository{
             addPierwiastekStmt.setInt(2, p.getNrOkresu());
             addPierwiastekStmt.setInt(3, p.getNrGrupy());
             addPierwiastekStmt.setInt(4, p.getLiczbaElektronow());
-            addPierwiastekStmt.executeUpdate();
+            count = addPierwiastekStmt.executeUpdate();
         } catch(SQLException e) {
             throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());      
         }

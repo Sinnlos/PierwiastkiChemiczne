@@ -80,16 +80,14 @@ public class PierwiastekTest {
 
     }
 
+
     @Test
-    public void addTestMock() throws Exception{
+    public void addTestMock() throws SQLException{
 
         when(addStmtMock.executeUpdate()).thenReturn(1);
 
-        Pierwiastek pierwiastek = new Pierwiastek();
-        pierwiastek.setNazwa("Tlen");
-        pierwiastek.setNrOkresu(2);
-        pierwiastek.setNrGrupy(16);
-        pierwiastek.setLiczbaElektronow(6);
+        Pierwiastek pierwiastek = new Pierwiastek(8, "Tlen", 2,16,6);
+
 
         assertEquals(1, pierwiastekRepository.add(pierwiastek));
 
@@ -100,7 +98,8 @@ public class PierwiastekTest {
         verify(addStmtMock).executeUpdate();
     }
 
-  /*  @Test
+    /*
+   @Test
     public void addOrderTestMock() throws Exception{
 
         InOrder inorder = inOrder(addStmtMock);
@@ -118,18 +117,14 @@ public class PierwiastekTest {
         inorder.verify(addStmtMock, times(1)).setInt(4, 6);
     }
 
-    */
+  */
 
     @Test(expected = IllegalStateException.class)
     public void nullAddingTest() throws SQLException{
 
         when(addStmtMock.executeUpdate()).thenThrow(new SQLException());
 
-        Pierwiastek pierwiastek = new Pierwiastek();
-        pierwiastek.setNazwa(null);
-        pierwiastek.setNrOkresu(2);
-        pierwiastek.setNrGrupy(16);
-        pierwiastek.setLiczbaElektronow(6);
+        Pierwiastek pierwiastek = new Pierwiastek(0,null,4,2,2);
 
         assertEquals(1, pierwiastekRepository.add(pierwiastek));
     }
@@ -145,22 +140,16 @@ public class PierwiastekTest {
     @Test
     public void updateTestMock() throws SQLException{
 
-        Pierwiastek pierwiastek1 = new Pierwiastek();
-        pierwiastek1.setNazwa("Wapn");
-        pierwiastek1.setNrOkresu(4);
-        pierwiastek1.setNrGrupy(2);
-        pierwiastek1.setLiczbaElektronow(2);
+        Pierwiastek pierwiastek1 = new Pierwiastek(1,"Wapn",4,2,2);
+
 
         doReturn(pierwiastek1).when(pierwiastekRepositoryMock).getPierwiastekById(isA(Integer.class));
         Pierwiastek pierwiastekToUpdate = pierwiastekRepositoryMock.getPierwiastekById(1);
-        pierwiastekToUpdate.setNazwa("Hel");
+        pierwiastekToUpdate.setNazwa("Potas");
         pierwiastekRepository.updateById(pierwiastekToUpdate);
 
-        Pierwiastek pierwiastek2 = new Pierwiastek();
-        pierwiastek1.setNazwa("Potas");
-        pierwiastek1.setNrOkresu(4);
-        pierwiastek1.setNrGrupy(2);
-        pierwiastek1.setLiczbaElektronow(2);
+        Pierwiastek pierwiastek2 = new Pierwiastek(1, "Potas", 4,2,2);
+
 
         doReturn(pierwiastek2).when(pierwiastekRepositoryMock).getPierwiastekById(2);
 
@@ -169,8 +158,8 @@ public class PierwiastekTest {
 
         verify(updateStmtMock, times(1)).setString(1, "Potas");
         verify(updateStmtMock, times(1)).setInt(2, 4);
-        verify(updateStmtMock, times(1)).setInt(2, 2);
-        verify(updateStmtMock, times(1)).setInt(2, 2);
+        verify(updateStmtMock, times(1)).setInt(3, 2);
+        verify(updateStmtMock, times(1)).setInt(4, 2);
         verify(updateStmtMock).executeUpdate();
 
     }
@@ -180,10 +169,17 @@ public class PierwiastekTest {
 
 
 
+
+
+
+
+
+/*
+
     @Ignore
     @Test
     public void addTest(){
-        
+
         Pierwiastek pierwiastek = new Pierwiastek();
         pierwiastek.setId(2);
         pierwiastek.setNazwa("Lit");
@@ -249,7 +245,7 @@ public class PierwiastekTest {
     @Test
     public void deleteTest(){
 
-        
+
         pierwiastekRepository.deleteById(1);
 
         List<Pierwiastek> pierwiastki = pierwiastekRepository.getAllPierwiastki();
@@ -282,5 +278,5 @@ public class PierwiastekTest {
         pierwiastekRepository.dropTable();
     }
 
-
+*/
 }
