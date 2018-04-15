@@ -50,6 +50,7 @@ public class PierwiastekTest {
 
 
 
+
     @Before
     public void setupDatabase() throws SQLException{
 
@@ -57,7 +58,7 @@ public class PierwiastekTest {
                 .thenReturn(addStmtMock);
         when(connectionMock.prepareStatement("SELECT * FROM Pierwiastek WHERE id = ?"))
                 .thenReturn(getByIdStmtMock);
-        when(connectionMock.prepareStatement("SELECT * FROM Pierwiastek"))
+        when(connectionMock.prepareStatement("SELECT id, nazwa, nrOkresu, nrGrupy, liczbaElektronow FROM Pierwiastek"))
                 .thenReturn(getAllStmtMock);
         when(connectionMock.prepareStatement("UPDATE Pierwiastek SET nazwa = ?, nrOkresu = ?, nrGrupy = ?, liczbaElektronow = ? WHERE id = ?"))
                 .thenReturn(updateStmtMock);
@@ -98,26 +99,102 @@ public class PierwiastekTest {
         verify(addStmtMock).executeUpdate();
     }
 
-    /*
-   @Test
-    public void addOrderTestMock() throws Exception{
 
-        InOrder inorder = inOrder(addStmtMock);
-        when(addStmtMock.executeUpdate()).thenReturn(1);
+    abstract class AbstractResultSet implements ResultSet{
 
-        Pierwiastek pierwiastek = new Pierwiastek();
-        pierwiastek.setNazwa("Tlen");
-        pierwiastek.setNrOkresu(2);
-        pierwiastek.setNrGrupy(16);
-        pierwiastek.setLiczbaElektronow(6);
+        int i = 0;
 
-        inorder.verify(addStmtMock, times(1)).setString(1,"Tlen");
-        inorder.verify(addStmtMock, times(1)).setInt(2, 2);
-        inorder.verify(addStmtMock, times(1)).setInt(3, 16);
-        inorder.verify(addStmtMock, times(1)).setInt(4, 6);
+        @Override
+        public int getInt(String s) throws SQLException{
+            return 1;
+        }
+
+        @Override
+        public String getString(String columnLabel) throws SQLException{
+            return "Hel";
+        }
+
+        @Override
+        public boolean next() throws SQLException{
+
+            if(i==1)
+                return false;
+
+            i++;
+            return true;
+        }
     }
 
-  */
+    abstract class AbstractResultSetAll implements ResultSet {
+        int i = 0;
+
+        @Override
+        public int getInt(String s) throws SQLException {
+            return 1;
+        }
+
+        @Override
+        public String getString(String columnLabel) throws SQLException {
+            return "Hel";
+        }
+
+        @Override
+        public boolean next() throws SQLException {
+            if (i == 1)
+                return false;
+            i++;
+            return true;
+        }
+    }
+
+
+    @Test
+    public void getByIdTest() throws SQLException{
+
+        AbstractResultSet mockedResultSet = mock(AbstractResultSet.class);
+        when(mockedResultSet.next()).thenCallRealMethod();
+        when(mockedResultSet.getInt("id")).thenCallRealMethod();
+        when(mockedResultSet.getInt("nazwa")).thenCallRealMethod();
+        when(mockedResultSet.getInt("nrOkresu")).thenCallRealMethod();
+        when(mockedResultSet.getInt("nrGrupy")).thenCallRealMethod();
+        when(mockedResultSet.getInt("liczbaElektronow")).thenCallRealMethod();
+        when(getByIdStmtMock.executeQuery()).thenReturn(mockedResultSet);
+
+        assertNotNull(pierwiastekRepository.getPierwiastekById(1));
+
+
+        verify(getByIdStmtMock, times(1)).executeQuery();
+        verify(mockedResultSet, times(1)).getInt("id");
+        verify(mockedResultSet, times(1)).getString("nazwa");
+        verify(mockedResultSet, times(1)).getInt("nrOkresu");
+        verify(mockedResultSet, times(1)).getInt("nrGrupy");
+        verify(mockedResultSet, times(1)).getInt("liczbaElektronow");
+        verify(mockedResultSet, times(2)).next();
+    }
+
+    @Test
+    public void getAllTest() throws SQLException{
+
+        AbstractResultSetAll mockedResultSetAll = mock(AbstractResultSetAll.class);
+        when(mockedResultSetAll.next()).thenCallRealMethod();
+        when(mockedResultSetAll.getInt("id")).thenCallRealMethod();
+        when(mockedResultSetAll.getString("nazwa")).thenCallRealMethod();
+        when(mockedResultSetAll.getInt("nrOkresu")).thenCallRealMethod();
+        when(mockedResultSetAll.getInt("nrGrupy")).thenCallRealMethod();
+        when(mockedResultSetAll.getInt("liczbaElektronow")).thenCallRealMethod();
+        when(getAllStmtMock.executeQuery()).thenReturn(mockedResultSetAll);
+
+        assertEquals(1, pierwiastekRepository.getAllPierwiastki().size());
+
+        verify(getAllStmtMock, times(1)).executeQuery();
+        verify(mockedResultSetAll, times(1)).getInt("id");
+        verify(mockedResultSetAll, times(1)).getString("nazwa");
+        verify(mockedResultSetAll, times(1)).getInt("nrOkresu");
+        verify(mockedResultSetAll, times(1)).getInt("nrGrupy");
+        verify(mockedResultSetAll, times(1)).getInt("liczbaElektrownow");
+        verify(mockedResultSetAll, times(2)).next();
+    }
+
 
     @Test(expected = IllegalStateException.class)
     public void nullAddingTest() throws SQLException{
