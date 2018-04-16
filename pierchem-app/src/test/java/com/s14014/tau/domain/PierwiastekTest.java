@@ -27,7 +27,7 @@ public class PierwiastekTest {
 
     IPierwiastekRepository pierwiastekRepository;
 
-
+/*
 
     @Mock
     Connection connectionMock;
@@ -241,6 +241,7 @@ public class PierwiastekTest {
 
     }
 
+*/
 
 
 
@@ -251,7 +252,6 @@ public class PierwiastekTest {
 
 
 
-/*
 
     @Ignore
     @Test
@@ -355,5 +355,5 @@ public class PierwiastekTest {
         pierwiastekRepository.dropTable();
     }
 
-*/
+
 }
