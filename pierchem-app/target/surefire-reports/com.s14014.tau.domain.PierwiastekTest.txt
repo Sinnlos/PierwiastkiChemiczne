@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: com.s14014.tau.domain.PierwiastekTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.982 sec <<< FAILURE!
-getAllTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.122 sec  <<< ERROR!
+Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.904 sec <<< FAILURE!
+getAllTest(com.s14014.tau.domain.PierwiastekTest)  Time elapsed: 0.007 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.s14014.tau.repository.PierwiastekManagerImpl.getAllPierwiastki(PierwiastekManagerImpl.java:120)
-	at com.s14014.tau.domain.PierwiastekTest.getAllTest(PierwiastekTest.java:208)
+	at com.s14014.tau.domain.PierwiastekTest.getAllTest(PierwiastekTest.java:186)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
