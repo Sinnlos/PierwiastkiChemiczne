@@ -34,7 +34,7 @@ public class PierwiastekRepositoryTest {
 
     @Test
     public void checkConnection(){
-        assertNotNull(pierwiastekRepository.getConnection())
+        assertNotNull(pierwiastekRepository.getConnection());
     }
 
     @Test
