@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 
 @Ignore
 public class PierwiastekRepositoryTest {
-/*
+
 
     IPierwiastekRepository pierwiastekRepository;
 
@@ -50,5 +50,5 @@ public class PierwiastekRepositoryTest {
         assertEquals(NAZWA_1, pierwiastekRetrived.getNazwa());
     }
 
-    */
+
 }
