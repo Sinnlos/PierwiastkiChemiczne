@@ -1,6 +1,7 @@
 package com.s14014.tau.repository;
 
 import com.s14014.tau.domain.*;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.lang.IllegalStateException;
 
+@Component
 public class PierwiastekManagerImpl implements IPierwiastekRepository{
 
     private Connection connection;
