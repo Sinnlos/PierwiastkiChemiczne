@@ -24,35 +24,44 @@ public class PierwiastekApi {
 
     @RequestMapping(value = "pierwiastki", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<Pierwiastek> getPieriwaski() throws SQLException{
+    public List<Pierwiastek> getPierwiastki() throws SQLException
+    {
         List<Pierwiastek> pierwiastki = new LinkedList<>();
         pierwiastki.addAll(pierwiastekRepository.getAllPierwiastki());
 
         return pierwiastki;
-
     }
+
 
     @RequestMapping(value = "/pierwiastek/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Pierwiastek getPierwiastek(@PathVariable("id") int id) throws SQLException{
+    public Pierwiastek getPierwiastek(@PathVariable("id") int id) throws SQLException
+    {
         return pierwiastekRepository.getPierwiastekById(id);
     }
 
+
     @RequestMapping(value = "/pierwiastek/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public int deletePierwiastek(@PathVariable("id") int id){
+    public int deletePierwiastek(@PathVariable("id") int id)
+    {
         return (int) pierwiastekRepository.deleteById(id);
     }
 
+
     @RequestMapping(value = "/pierwiastek", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public int addPierwiastek(@RequestBody Pierwiastek p){
+    public int addPierwiastek(@RequestBody Pierwiastek p)
+    {
         return (int) pierwiastekRepository.add(p);
     }
 
+
     @RequestMapping(value = "/pierwiastek", method = RequestMethod.PUT)
-    public int updatePierwiastek(@RequestBody Pierwiastek p) throws SQLException{
+    public int updatePierwiastek(@RequestBody Pierwiastek p) throws SQLException
+    {
         return (int) pierwiastekRepository.updateById(p);
     }
+
 
 
 

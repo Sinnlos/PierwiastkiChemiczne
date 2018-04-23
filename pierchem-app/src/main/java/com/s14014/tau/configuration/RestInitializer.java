@@ -23,7 +23,7 @@ public class RestInitializer implements WebApplicationInitializer {
     }
     private AnnotationConfigWebApplicationContext getContext() {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.setConfigLocation("pierwiastkiChemiczne.configuration");
+        context.setConfigLocation("com.s14014.tau.configuration");
         return context;
     }
 }

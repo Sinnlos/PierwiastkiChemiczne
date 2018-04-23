@@ -21,10 +21,14 @@ public class PierwiastekManagerImpl implements IPierwiastekRepository{
     private PreparedStatement getPierwiastekByIdStm;
     private PreparedStatement dropTableStm;
 
+
+
     public PierwiastekManagerImpl() throws SQLException {
         this.connection = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/workdb");
         checkDatabaseAndSetConnection(this.connection);
     }
+
+
 
     void checkDatabaseAndSetConnection(Connection connection) throws SQLException{
         if (!isDatabaseReady()) {
