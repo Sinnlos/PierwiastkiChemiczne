@@ -1,0 +1,11 @@
+<!ELEMENT dataset (
+        PIERWIASTEK*)>
+
+        <!ELEMENT PIERWIASTEK EMPTY>
+        <!ATTLIST PIERWIASTEK
+                ID CDATA #REQUIRED
+                NAZWA CDATA #REQUIRED
+                NRGRUPY CDATA #IMPLIED
+                NROKRESU CDATA #IMPLIED
+                LICZBAELEKTRONOW CDATA #IMPLIED
+                >

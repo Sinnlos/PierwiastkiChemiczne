@@ -7,23 +7,30 @@ import static org.hamcrest.CoreMatchers.*;
 
 import java.util.List;
 
+import com.s14014.tau.domain.repository.PierwiastekDBUnitTest;
 import org.junit.*;
 import com.s14014.tau.repository.*;
 
+import java.sql.DriverManager;
+
+import org.dbunit.JdbcDatabaseTester;
+import org.dbunit.PropertiesBasedJdbcDatabaseTester;
+import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.dbunit.operation.DatabaseOperation;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-import org.mockito.InOrder;
-import org.mockito.Mock;
-import java.sql.*;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.AdditionalMatchers.gt;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.then;
-import static org.mockito.Mockito.*;
+import org.junit.runners.Suite;
+
+import com.s14014.tau.repository.PierwiastekManagerImpl;
+
 
 
 public class PierwiastekTest {
+
+
+
 
 /*
 

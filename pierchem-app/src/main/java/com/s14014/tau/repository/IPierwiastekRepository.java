@@ -14,9 +14,16 @@ public interface IPierwiastekRepository{
     List<Pierwiastek> getAllPierwiastki();
     int add(Pierwiastek p);
     Pierwiastek getPierwiastekById(int id);
+
+    public int deleteAll();
+    public String introduceSelf();
+
     int deleteById(int id);
     int updateById(Pierwiastek p);
-    void dropTable();
+
+    int deletePierwiastek(Pierwiastek p);
+    int updatePierwiastek(Pierwiastek p) throws SQLException;
+    //void dropTable();
 	
 
     

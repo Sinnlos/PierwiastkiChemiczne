@@ -64,6 +64,25 @@ public class Pierwiastek {
 	public Pierwiastek() {
 	}
 
+	@Override
+    public boolean equals(Object o){
+        Pierwiastek other = (Pierwiastek) o;
+        boolean ret = other.getNazwa().equals(this.getNazwa()) &&
+                (other.getId() == this.getId()) &&
+                (other.getNrGrupy() == this.getNrGrupy()) &&
+                (other.getNrOkresu() == this.getNrOkresu()) &&
+                (other.getLiczbaElektronow() == this.getLiczbaElektronow());
+
+                return ret;
+    }
+
+    @Override
+    public String toString(){
+        return "[" + id + "," + nazwa + "," + nrGrupy + "," + nrOkresu +
+                "," + liczbaElektronow + "]" ;
+
+    }
+
     /*public void przepiszElektrony(){
 
         if(nrGrupy == 1 || nrGrupy == 2){
