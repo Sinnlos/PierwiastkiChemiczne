@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.s14014.tau.domain.PierwiastekTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.323 s <<< FAILURE! - in com.s14014.tau.domain.PierwiastekTest
-com.s14014.tau.domain.PierwiastekTest  Time elapsed: 0.322 s  <<< ERROR!
-java.lang.NullPointerException
-	at com.s14014.tau.domain.PierwiastekTest.before(PierwiastekTest.java:51)
-

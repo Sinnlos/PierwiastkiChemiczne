@@ -1,20 +1,32 @@
 package com.s14014.tau.domain;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "pierwiastek.niemetal" , query = "Select p from Pierwiastek p where p.metal = false")
+})
 
 public class Pierwiastek {
 
-    private  int id;
+    private  Long id;
     private  String nazwa;
     private  int nrOkresu;
     private  int nrGrupy;
     private  int liczbaElektronow;
-    
-    
-    public int getId() {
+    private  Boolean metal = false;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
         return id;
     }
  
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -50,28 +62,33 @@ public class Pierwiastek {
         this.liczbaElektronow = liczbaElektronow;
     }
 
+    public Boolean getMetal(Boolean metal){ return metal; }
+
+    public void setMetal(Boolean metal){ this.metal = metal; }
+
     
 
-	public Pierwiastek(int id, String nazwa, int nrOkresu, int nrGrupy, int liczbaElektronow) {
+	public Pierwiastek(Long id, String nazwa, int nrOkresu, int nrGrupy, int liczbaElektronow, Boolean metal) {
 
         this.id = id;
         this.nazwa = nazwa;
         this.nrOkresu = nrOkresu;
         this.nrGrupy = nrGrupy;
         this.liczbaElektronow = liczbaElektronow;
+        this.metal = metal;
 	}
 
 	public Pierwiastek() {
 	}
 
-	@Override
+/*	@Override
     public boolean equals(Object o){
         Pierwiastek other = (Pierwiastek) o;
         boolean ret = other.getNazwa().equals(this.getNazwa()) &&
                 (other.getId() == this.getId()) &&
                 (other.getNrGrupy() == this.getNrGrupy()) &&
                 (other.getNrOkresu() == this.getNrOkresu()) &&
-                (other.getLiczbaElektronow() == this.getLiczbaElektronow());
+                (other.getLiczbaElektronow() == this.getLiczbaElektronow()) &&;
 
                 return ret;
     }
@@ -82,6 +99,8 @@ public class Pierwiastek {
                 "," + liczbaElektronow + "]" ;
 
     }
+
+  */
 
     /*public void przepiszElektrony(){
 

@@ -73,7 +73,7 @@ public class PierwiastekDBUnitTest extends DBTestCase{
         IDataSet expectedDataSet = getDataSet("ds-2.xml");
         ITable expectedTable = expectedDataSet.getTable("PIERWIASTEK");
         Assertion.assertEquals(expectedTable, filteredTable);
-        pierwiastekManager.deletePierwiastek(pierwiastek); // wyczyszczenie
+        pierwiastekManager.deletePierwiastek(pierwiastek);
 
 
     }
