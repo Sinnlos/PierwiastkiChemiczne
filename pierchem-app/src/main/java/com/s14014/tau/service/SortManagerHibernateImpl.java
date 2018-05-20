@@ -67,9 +67,9 @@ public class SortManagerHibernateImpl implements SortManager {
     }
 
     @Override
-    public int addNewPierwiastek(Pierwiastek pierwiastek) {
+    public Long addNewPierwiastek(Pierwiastek pierwiastek) {
         pierwiastek.setId(null);
-        return (int) sessionFactory.getCurrentSession().save(pierwiastek);
+        return (Long) sessionFactory.getCurrentSession().save(pierwiastek);
     }
 
     @Override
@@ -103,9 +103,10 @@ public class SortManagerHibernateImpl implements SortManager {
     }
 
     @Override
-    public Pierwiastek findPierwiastekById(int id) {
+    public Pierwiastek findPierwiastekById(Long id) {
         return (Pierwiastek) sessionFactory.getCurrentSession().get(Pierwiastek.class, id);
     }
+
 
     @Override
     public List<Pierwiastek> getInventedPierwiastki(Inventor inventor) {

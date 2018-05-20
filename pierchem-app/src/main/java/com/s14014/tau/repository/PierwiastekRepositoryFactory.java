@@ -1,4 +1,4 @@
-package com.s14014.tau.repository;
+/*package com.s14014.tau.repository;
 
 import java.sql.*;
 
@@ -21,3 +21,4 @@ public class PierwiastekRepositoryFactory{
 
         }
     }
+*/

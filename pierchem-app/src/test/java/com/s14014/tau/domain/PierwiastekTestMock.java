@@ -1,4 +1,4 @@
-package com.s14014.tau.domain;
+/*package com.s14014.tau.domain;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -240,5 +240,6 @@ public class PierwiastekTestMock {
 
     }
 
-*/
+
 }
+*/

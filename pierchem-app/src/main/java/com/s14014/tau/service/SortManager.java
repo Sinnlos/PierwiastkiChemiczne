@@ -11,7 +11,7 @@ public interface SortManager {
     void deleteInventor(Inventor inventor);
     Inventor findInventorByPesel(String pesel);
 
-    int addNewPierwiastek(Pierwiastek pierwiastek);
+    Long addNewPierwiastek(Pierwiastek pierwiastek);
     List<Pierwiastek> getMetalePerwiastki();
     void disposePierwiastek(Inventor inventor, Pierwiastek pierwiastek);
     Pierwiastek findPierwiastekById(Long id);

@@ -1,6 +1,6 @@
 package com.s14014.tau.repository;
 
-import com.s14014.tau.domain.*;
+/*import com.s14014.tau.domain.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -26,10 +26,11 @@ public interface IPierwiastekRepository{
     //void dropTable();
 	
 
-    
+
     
 
 
 
 
 }
+*/

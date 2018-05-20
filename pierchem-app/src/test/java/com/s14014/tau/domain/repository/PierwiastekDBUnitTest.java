@@ -1,4 +1,4 @@
-package com.s14014.tau.domain.repository;
+/*package com.s14014.tau.domain.repository;
 
 
 import com.s14014.tau.domain.Pierwiastek;
@@ -100,9 +100,10 @@ public class PierwiastekDBUnitTest extends DBTestCase{
      * @return flat xml data set
      * @throws Exception when there is a problem with opening dataset
      */
-    protected IDataSet getDataSet(String datasetName) throws Exception {
+  /*protected IDataSet getDataSet(String datasetName) throws Exception {
         URL url = getClass().getClassLoader().getResource(datasetName);
         FlatXmlDataSet ret = new FlatXmlDataSetBuilder().build(url.openStream());
         return ret;
     }
 }
+*/

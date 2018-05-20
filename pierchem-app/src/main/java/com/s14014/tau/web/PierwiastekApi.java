@@ -1,7 +1,8 @@
 package com.s14014.tau.web;
 
 import com.s14014.tau.domain.Pierwiastek;
-import com.s14014.tau.repository.IPierwiastekRepository;
+//import com.s14014.tau.repository.IPierwiastekRepository;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -10,10 +11,11 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+
 @RestController
 public class PierwiastekApi {
 
-    @Autowired
+   /* @Autowired
     IPierwiastekRepository pierwiastekRepository;
 
     @RequestMapping("/")
@@ -82,7 +84,7 @@ public class PierwiastekApi {
 
 
 
-
+*/
 
 
 

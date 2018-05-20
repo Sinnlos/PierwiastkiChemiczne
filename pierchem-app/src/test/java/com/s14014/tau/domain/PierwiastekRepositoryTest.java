@@ -1,5 +1,5 @@
 
-package com.s14014.tau.domain;
+/*package com.s14014.tau.domain;
 
 import com.s14014.tau.repository.IPierwiastekRepository;
 import com.s14014.tau.repository.PierwiastekManagerImpl;
@@ -52,3 +52,4 @@ public class PierwiastekRepositoryTest {
 
 
 }
+*/

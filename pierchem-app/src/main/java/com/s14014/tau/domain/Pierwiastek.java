@@ -20,6 +20,7 @@ public class Pierwiastek {
     private  int liczbaElektronow;
     private  Boolean metal = false;
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
@@ -62,7 +63,7 @@ public class Pierwiastek {
         this.liczbaElektronow = liczbaElektronow;
     }
 
-    public Boolean getMetal(Boolean metal){ return metal; }
+    public Boolean getMetal() {return metal; }
 
     public void setMetal(Boolean metal){ this.metal = metal; }
 
@@ -80,6 +81,8 @@ public class Pierwiastek {
 
 	public Pierwiastek() {
 	}
+
+
 
 /*	@Override
     public boolean equals(Object o){

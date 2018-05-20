@@ -1,4 +1,4 @@
-package com.s14014.tau.repository;
+/*package com.s14014.tau.repository;
 
 import com.s14014.tau.domain.*;
 import org.springframework.stereotype.Component;
@@ -297,5 +297,6 @@ public class PierwiastekManagerImpl implements IPierwiastekRepository{
             throw new IllegalStateException(e.getMessage() + "\n" + e.getStackTrace().toString());
         }
 	}
-	*/
+
 }
+*/

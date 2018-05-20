@@ -1,6 +1,6 @@
-package com.s14014.tau.domain;
+/*package com.s14014.tau.domain;
 
-import com.s14014.tau.domain.repository.PierwiastekDBUnitTest;
+//import com.s14014.tau.domain.repository.PierwiastekDBUnitTest;
 import com.s14014.tau.repository.PierwiastekManagerImpl;
 import org.dbunit.JdbcDatabaseTester;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
@@ -9,14 +9,16 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import java.sql.DriverManager;
 
+
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        PierwiastekDBUnitTest.class
+       // PierwiastekDBUnitTest.class
 })
 public class PierwiastekDBTest {
 
@@ -47,3 +49,4 @@ public class PierwiastekDBTest {
     }
 
 }
+*/
