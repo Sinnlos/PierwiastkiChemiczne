@@ -7,7 +7,9 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import net.bytebuddy.TypeCache;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.ExpectedDatabase;
+import com.github.springtestdbunit.assertion.DatabaseAssertionMode;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -131,6 +133,9 @@ public class SortManagerTest {
 
 
     @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/addInventorData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void deletePierwiastekCheck(){
 
         Inventor inventor = new Inventor();

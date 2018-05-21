@@ -20,7 +20,7 @@
                 IMIE CDATA #IMPLIED
                 NAZWISKO CDATA #IMPLIED
                 PESEL CDATA #REQUIRED
-                FIRSTEVENTDATE CDATA #IMPLIED
+                FIRSTINVENTDATE CDATA #IMPLIED
                 >
 
         <!ELEMENT INVENTOR_PIERWIASTEK EMPTY>

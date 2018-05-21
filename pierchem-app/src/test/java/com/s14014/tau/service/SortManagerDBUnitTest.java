@@ -1,6 +1,7 @@
 package com.s14014.tau.service;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,23 +52,91 @@ public class SortManagerDBUnitTest {
     @DatabaseSetup("/fullData.xml")
     @ExpectedDatabase(value = "/addInventorData.xml",
     assertionMode = DatabaseAssertionMode.NON_STRICT)
-    public void getInventorCheck() throws Exception{
-
-        assertEquals(2, sortManager.getAllInventors().size());
-
-
-        Inventor i = new Inventor();
-        i.setImie("Wiktor");
-        i.setNazwisko("Romanow");
-        i.setPesel("43012144859");
-        i.setFirstInventDate(new SimpleDateFormat("yyyy-MM-dd").parse("1920-05-20"));
-
-        sortManager.addInventor(i);
+    public void addInventorCheck() throws Exception{
 
         assertEquals(3, sortManager.getAllInventors().size());
 
+
+        Inventor i = new Inventor();
+        i.setImie("Taehyung");
+        i.setNazwisko("Kim");
+        i.setPesel("95122113440");
+        i.setFirstInventDate(new SimpleDateFormat("yyyy-MM-dd").parse("1874-05-14"));
+
+        sortManager.addInventor(i);
+
+        assertEquals(4, sortManager.getAllInventors().size());
+
     }
 
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/deleteData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void deleteInventorCheck() throws Exception{
+
+        assertEquals(3, sortManager.getAllInventors().size());
+
+        Inventor inventor = sortManager.findInventorByPesel("85043021547");
+
+        sortManager.deleteInventor(inventor);
+
+        assertEquals(2, sortManager.getAllInventors().size());
+
+    }
+
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/updateData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void updateInventorCheck() throws Exception{
+
+
+
+        Inventor inventor = sortManager.findInventorByPesel("43012144859");
+
+        inventor.setNazwisko("Update");
+
+         sortManager.updateInventor(inventor);
+
+         assertEquals(sortManager.findInventorByPesel("43012144859").getNazwisko(), inventor.getNazwisko());
+
+
+
+
+    }
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/fullData.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void getInventorCheck() throws Exception{
+
+        Inventor inventor = sortManager.findInventorByPesel("12043021547");
+
+        assertNotNull(inventor);
+
+        assertEquals(sortManager.findInventorByPesel("12043021547").getNazwisko(), inventor.getNazwisko());
+    }
+
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/disposePierwiastek.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void disposePerwiastekCheck(){
+
+        Inventor inventor = sortManager.findInventorByPesel("85043021547");
+
+        assertEquals(2, inventor.getPierwiastki().size());
+
+        Pierwiastek pierwiastek = inventor.getPierwiastki().get(0);
+        sortManager.disposePierwiastek(inventor, pierwiastek);
+
+        assertEquals(1, inventor.getPierwiastki().size());
+
+    }
 
 }
 
