@@ -33,7 +33,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 @Transactional(transactionManager = "txManager")
 public class SortManagerTest {
 
-    @Autowired
+    /*@Autowired
     SortManager sortManager;
 
     private final String IMIE_1 = "";
@@ -176,7 +176,7 @@ public class SortManagerTest {
       //  assertEquals("lit", pierwiastekRepository.getPierwiastekById(2).getNazwa());
           assertThat("lit", is(pierwiastekRepository.getPierwiastekById(2).getNazwa()));
 
-    }*/
+    }
 
     @Test
     public void findingInventorTest(){
@@ -197,6 +197,8 @@ public class SortManagerTest {
 
 
     }
+
+    */
 
 }
 
