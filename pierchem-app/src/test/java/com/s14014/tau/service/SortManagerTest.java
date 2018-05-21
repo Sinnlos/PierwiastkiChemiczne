@@ -1,6 +1,9 @@
 package com.s14014.tau.service;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -17,6 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import com.s14014.tau.domain.Pierwiastek;
 import com.s14014.tau.domain.Inventor;
+import org.junit.Assert.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
@@ -123,6 +127,63 @@ public class SortManagerTest {
         assertEquals(NROKRESU_2, inventedPierwiastki.get(0).getNrOkresu());
 
     }
+
+
+
+    @Test
+    public void deletePierwiastekCheck(){
+
+        Inventor inventor = new Inventor();
+        inventor.setImie(IMIE_1);
+        inventor.setNazwisko(NAZWISKO_1);
+        inventor.setPesel(PESEL_1);
+
+        sortManager.deleteInventor(inventor);
+
+        List<Inventor> sciencePeople = sortManager.getAllInventors();
+
+        assertEquals(null, sciencePeople.get(0).getId());
+        assertEquals(true, !sciencePeople.isEmpty());
+
+    }
+
+
+    @Test
+    public void updateInventorCheck(){
+
+        Inventor inventorToUpdate = sortManager.findInventorByPesel("12043021547");
+
+        inventorToUpdate.setNazwisko("update");
+
+        sortManager.updateInventor(inventorToUpdate);
+
+        assertEquals(sortManager.findInventorByPesel("12043021547"), inventorToUpdate.getPesel());
+        assertNotNull(sortManager.findInventorByPesel("43012144859"));
+        assertFalse("nie powinno modyfikować.." , sortManager.findInventorByPesel("12043021547").getImie().equals(inventorToUpdate.getImie()));
+    }
+
+    /*    @Ignore
+    @Test
+    public void findTest(){
+       Pierwiastek pierwiastek = pierwiastekRepository.getPierwiastekById(2);
+
+        assertNotNull(pierwiastek);
+      //  assertEquals("lit", pierwiastekRepository.getPierwiastekById(2).getNazwa());
+          assertThat("lit", is(pierwiastekRepository.getPierwiastekById(2).getNazwa()));
+
+    }*/
+
+    @Test
+    public void findingInventorTest(){
+
+        Inventor inventor = sortManager.findInventorByPesel("12043021547");
+
+        assertNotNull(inventor);
+
+        assertEquals("Wiktor", sortManager.findInventorByPesel("12043021547").getImie());
+
+    }
+
 
     @Test
     public void disposePierwiastkiCheck(){
