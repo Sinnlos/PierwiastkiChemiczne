@@ -125,7 +125,7 @@ public class SortManagerDBUnitTest {
     @DatabaseSetup("/fullData.xml")
     @ExpectedDatabase(value = "/disposePierwiastek.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT)
-    public void disposePerwiastekCheck(){
+    public void disposePerwiastekCheck() throws Exception{
 
         Inventor inventor = sortManager.findInventorByPesel("12043021547");
 
@@ -136,6 +136,21 @@ public class SortManagerDBUnitTest {
 
         assertEquals(1, inventor.getPierwiastki().size());
 
+    }
+
+    @Test
+    @DatabaseSetup("/fullData.xml")
+    @ExpectedDatabase(value = "/pierwiastki.xml",
+            assertionMode = DatabaseAssertionMode.NON_STRICT)
+    public void getInventorsPierwiastki() throws Exception{
+
+        Inventor inventor = sortManager.findInventorByPesel("12043021547");
+
+        assertNotNull(inventor);
+
+        assertNotNull(inventor.getPierwiastki());
+
+        assertEquals(2, inventor.getPierwiastki().size());
     }
 
 }
