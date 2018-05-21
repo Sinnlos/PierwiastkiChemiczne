@@ -1,4 +1,4 @@
-package com.s14014.tau.configuration;
+/*package com.s14014.tau.configuration;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -27,3 +27,4 @@ public class RestInitializer implements WebApplicationInitializer {
         return context;
     }
 }
+*/

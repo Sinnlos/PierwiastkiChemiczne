@@ -127,7 +127,7 @@ public class SortManagerDBUnitTest {
             assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void disposePerwiastekCheck(){
 
-        Inventor inventor = sortManager.findInventorByPesel("85043021547");
+        Inventor inventor = sortManager.findInventorByPesel("12043021547");
 
         assertEquals(2, inventor.getPierwiastki().size());
 

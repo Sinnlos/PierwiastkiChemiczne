@@ -1,4 +1,4 @@
-package com.s14014.tau.configuration;
+/*package com.s14014.tau.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,4 +16,4 @@ public class RestConfiguration extends WebMvcConfigurerAdapter {
     public void configureMessageConverters(List<HttpMessageConverter<?>> messageConverters) {
         super.configureMessageConverters(messageConverters);
     }
-}
+}*/
