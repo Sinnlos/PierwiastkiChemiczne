@@ -26,14 +26,14 @@ import org.junit.Assert.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
 
-
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/beans.xml"})
 @Rollback
 @Transactional(transactionManager = "txManager")
 public class SortManagerTest {
 
-    /*@Autowired
+    @Autowired
     SortManager sortManager;
 
     private final String IMIE_1 = "";
