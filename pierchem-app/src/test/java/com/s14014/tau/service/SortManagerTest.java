@@ -25,7 +25,7 @@ import com.s14014.tau.domain.Inventor;
 import org.junit.Assert.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
-
+/*
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/beans.xml"})
@@ -167,7 +167,7 @@ public class SortManagerTest {
         assertFalse("nie powinno modyfikować.." , sortManager.findInventorByPesel("12043021547").getImie().equals(inventorToUpdate.getImie()));
     }
 
-    /*    @Ignore
+    @Ignore
     @Test
     public void findTest(){
        Pierwiastek pierwiastek = pierwiastekRepository.getPierwiastekById(2);
@@ -198,12 +198,8 @@ public class SortManagerTest {
 
     }
 
-    */
 
-}
-
-
-
+*/
 
 
 
