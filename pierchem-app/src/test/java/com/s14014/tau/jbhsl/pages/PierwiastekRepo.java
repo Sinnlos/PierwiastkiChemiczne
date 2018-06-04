@@ -72,9 +72,11 @@ public class PierwiastekRepo extends WebDriverPage{
     }
 
 
-    public boolean ifExist(String exo) throws InterruptedException {
+    public boolean ifExist(String bts) throws InterruptedException {
+
+
         Thread.sleep(3000);
-        WebElement e = findElement(By.linkText(exo));
+        WebElement e = findElement(By.linkText(bts));
         return e.isDisplayed();
     }
 

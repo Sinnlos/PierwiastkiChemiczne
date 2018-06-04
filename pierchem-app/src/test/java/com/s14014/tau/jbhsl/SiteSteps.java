@@ -15,6 +15,8 @@ import static org.junit.Assert.*;
 
 public class SiteSteps {
 
+
+
     private static WebDriver driver;
 
     private final Pages pages;
@@ -30,31 +32,30 @@ public class SiteSteps {
     }
 
     @Given("user is on repository page")
-    public void userOnRepoP(String bts) throws InterruptedException {
+    public void userOnRepoP(){
 
 
     }
 
     @Given("user is in src folder")
-    public void userOnSrc(String exo) throws InterruptedException {
+    public void userOnSrc() throws InterruptedException {
 
-     //   exo = "src";
-      //  assertTrue(pages.pierwiastekRepo().ifExist(exo));
+
+     assertTrue(pages.pierwiastekRepo().ifExist("x.html"));
 
     }
 
 
     @Given("user is in main folder")
-    public void userOnMain(String exo) throws InterruptedException {
+    public void userOnMain() throws InterruptedException {
 
-       // exo = "main";
-      //  assertTrue(pages.pierwiastekRepo().ifExist(exo));
+        assertTrue(pages.pierwiastekRepo().ifExist("y.html"));
 
     }
 
 
     @Given("user is in java folder")
-    public void userOnJava(String exo) throws InterruptedException {
+    public void userOnJava(){
 
        // exo = "java";
       //  assertTrue(pages.pierwiastekRepo().ifExist(exo));
