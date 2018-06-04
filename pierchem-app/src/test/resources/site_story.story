@@ -1,42 +1,31 @@
-Scenario: Open Pierwiastek.java class in repository on Github
+Scenario: Open testowe repository on Github
 
 Given user is on github page of Sinnlos
-When user clicks the PierwiastkiChemiczne link
-Then the next page opens
+When user clicks the testowe link
+Then the link with text testowe should be selected
 
 
-Given user is on github page of Sinnlos
-When user clicks the pierchem-app link
-Then the next page opens
+Scenario: Open src folder
 
-
-Given user is on github page of Sinnlos
+Given user is on repository page
 When user clicks the src link
-Then the next page opens
+Then the link with text src should be selected
 
+Scenario: open main folder
 
-Given user is on github page of Sinnlos
+Given user is in src folder
 When user clicks the main link
-Then the next page opens
+Then the link with text main should be selected
 
+Scenario: Open java folder
 
-Given user is on github page of Sinnlos
+Given user is in main folder
 When user clicks the java link
-Then the next page opens
+Then the link with text java should be selected
 
+Scenario: open Pierwiastek class
 
-Given user is on github page of Sinnlos
-When user clicks the com/s14014/tau link
-Then the next page opens
-
-
-Given user is on github page of Sinnlos
-When user clicks the domain link
-Then the next page opens
-
-
-Given user is on github page of Sinnlos
-When user clicks the Pierwiastek.jave link
-Then the next page opens
-
-
+Given user is in java folder
+When user clicks the Pierwiastek.java link
+Then the link with text Pierwiastek.java should be selected
+Then the article Pierwiastek is displayed

@@ -2,6 +2,7 @@ package com.s14014.tau.jbhsl.pages;
 
 import org.jbehave.web.selenium.WebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -23,7 +24,13 @@ public class PierwiastekRepo extends WebDriverPage{
 
     public void click(String linkText){
 
-        WebElement e = findElement(By.partialLinkText(linkText));
+        WebElement e = findElement(By.linkText(linkText));
+        e.click();
+    }
+
+    public void clickId(String linkById){
+
+        WebElement e = findElement(By.id(linkById));
         e.click();
     }
 
@@ -33,22 +40,22 @@ public class PierwiastekRepo extends WebDriverPage{
     }
 
 
-    public boolean isTabSelected(String tabText) {
+/*    public boolean isTabSelected(String tabText) {
         WebElement e = findElement(By.partialLinkText(tabText));
         return e.getAttribute("class").contains("tabSelected");
-    }
+    } */
 
-    public void setSearchText(String text) {
+   /* public void setSearchText(String text) {
         WebElement searchInput = findElement(By.cssSelector(
                 "#header > div.headerShadow > span.searchBar > input"));
         searchInput.sendKeys(text);
         searchInput.sendKeys(Keys.RETURN);
     }
-
+*/
 
     public boolean isArticlePresent(String articleTitle) {
         try {
-            List<WebElement> elements = findElements(By.cssSelector("#LC14 > span.pl-en"));
+            List<WebElement> elements = findElements(By.cssSelector("#LC4 > span.pl-en"));
             for (WebElement e : elements) {
                 if  (e.getText().toLowerCase().contains(articleTitle.toLowerCase())) return true;
             }
@@ -59,6 +66,41 @@ public class PierwiastekRepo extends WebDriverPage{
         }
     }
 
+    public boolean isTabSelected(String tabText) {
+        WebElement e = findElement(By.partialLinkText(tabText));
+        return e.getAttribute("class").contains("tabSelected");
+    }
 
 
+    public boolean ifExist(String exo) throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement e = findElement(By.linkText(exo));
+        return e.isDisplayed();
+    }
+
+/*
+
+    @Test
+    public void testRepo(){
+
+        open();
+
+        click("pierchem-app");
+
+        click("src");
+        click("main");
+        click("java");
+        click("com/s14014/tau");
+        click("domain");
+        click("Pierwiastek.java");
+        getClassesForLink("Pierwiastek.java");
+
+        isArticlePresent("public class Pierwiastek");
+
+
+
+
+
+    }
+    */
 }

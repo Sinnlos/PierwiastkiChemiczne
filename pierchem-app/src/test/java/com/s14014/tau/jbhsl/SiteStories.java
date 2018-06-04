@@ -1,46 +1,48 @@
 package com.s14014.tau.jbhsl;
 
-import org.jbehave.core.Embeddable;
-import org.jbehave.core.configuration.Configuration;
-import org.jbehave.core.io.LoadFromClasspath;
-import org.jbehave.core.io.StoryFinder;
-import org.jbehave.core.junit.JUnitStories;
-import org.jbehave.core.reporters.Format;
-import org.jbehave.core.reporters.StoryReporterBuilder;
-import org.jbehave.core.steps.InjectableStepsFactory;
-import org.jbehave.core.steps.InstanceStepsFactory;
-import org.jbehave.core.steps.SilentStepMonitor;
-import org.jbehave.web.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
-import org.openqa.selenium.remote.*;
 
-import java.util.List;
+        import org.jbehave.core.Embeddable;
+        import org.jbehave.core.configuration.Configuration;
+        import org.jbehave.core.io.LoadFromClasspath;
+        import org.jbehave.core.io.StoryFinder;
+        import org.jbehave.core.junit.JUnitStories;
+        import org.jbehave.core.reporters.Format;
+        import org.jbehave.core.reporters.StoryReporterBuilder;
+        import org.jbehave.core.steps.InjectableStepsFactory;
+        import org.jbehave.core.steps.InstanceStepsFactory;
+        import org.jbehave.core.steps.SilentStepMonitor;
+        import org.jbehave.web.selenium.*;
+        import org.openqa.selenium.chrome.ChromeDriver;
+        import org.openqa.selenium.phantomjs.PhantomJSDriver;
+        import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+        import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static java.util.Arrays.asList;
-import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
+        import java.util.List;
 
-public class SiteStories extends  JUnitStories{
+        import static java.util.Arrays.asList;
+        import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 
+public class SiteStories extends JUnitStories {
 
-    private WebDriverProvider driverProvider = new TypeWebDriverProvider(PhantomJSDriver.class);
-
-    private WebDriverSteps lifecycleSteps = new PerStoryWebDriverSteps(driverProvider);
-
+    private WebDriverProvider driverProvider =
+            new TypeWebDriverProvider(PhantomJSDriver.class);
+    private WebDriverSteps lifecycleSteps =
+            new PerStoryWebDriverSteps(driverProvider); // or PerStoryWebDriverSteps(driverProvider)
     private Pages pages = new Pages(driverProvider);
-
     private SeleniumContext context = new SeleniumContext();
-
     private ContextView contextView = new LocalFrameContextView().sized(500, 100);
-
 
     public SiteStories(){
 
         System.setProperty("takeScreenshot", "true");
+        System.setProperty(
+                PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+                "C:\\phantom js\\phantomjs-2.1.1-windows\\bin\\phantomjs.exe"
+        );
         System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
 
     }
+
 
 
     @Override
@@ -72,8 +74,5 @@ public class SiteStories extends  JUnitStories{
                 codeLocationFromClass(this.getClass()).getFile(),
                 asList("**/*.story"), null);
     }
-
-
-
 
 }
