@@ -32,8 +32,9 @@ public class SiteSteps {
     }
 
     @Given("user is on repository page")
-    public void userOnRepoP(){
+    public void userOnRepoP() throws InterruptedException {
 
+        assertTrue(pages.pierwiastekRepo().ifExist("pom.xml"));
 
     }
 
@@ -55,10 +56,9 @@ public class SiteSteps {
 
 
     @Given("user is in java folder")
-    public void userOnJava(){
+    public void userOnJava() throws InterruptedException {
 
-       // exo = "java";
-      //  assertTrue(pages.pierwiastekRepo().ifExist(exo));
+        assertTrue(pages.pierwiastekRepo().ifExist("Pierwiastek.java"));
 
     }
 
@@ -73,9 +73,10 @@ public class SiteSteps {
         pages.pierwiastekRepo().click(linkText);
     }
 
-   @Then("the link with text $linkText should be selected")
-    public void linksOpen(String linkText){
-        //assertTrue(pages.pierwiastekRepo().isTabSelected(linkText));
+   @Then("the link with text $linkText should be displayed")
+    public void linksOpen(String linkText) throws InterruptedException {
+
+        assertTrue(pages.pierwiastekRepo().ifExist(linkText));
     }
 
     @Then("the article $articleName is displayed")
