@@ -26,3 +26,5 @@ public class DatabaseExport {
                 "src/test/resources/fullData_.xml"));
     }
 }
+
+//pliczek do dodanie

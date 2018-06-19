@@ -1,5 +1,5 @@
 package com.s14014.tau.jbhsl.pages;
-
+/*
 import org.jbehave.web.selenium.WebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import org.junit.Test;
@@ -45,13 +45,16 @@ public class PierwiastekRepo extends WebDriverPage{
         return e.getAttribute("class").contains("tabSelected");
     } */
 
-   /* public void setSearchText(String text) {
+/*
+    public void setSearchText(String text) {
         WebElement searchInput = findElement(By.cssSelector(
                 "#header > div.headerShadow > span.searchBar > input"));
         searchInput.sendKeys(text);
         searchInput.sendKeys(Keys.RETURN);
     }
-*/
+
+
+
 
     public boolean isArticlePresent(String articleTitle) {
         try {
@@ -80,7 +83,9 @@ public class PierwiastekRepo extends WebDriverPage{
         return e.isDisplayed();
     }
 
-/*
+
+
+
 
     @Test
     public void testRepo(){
@@ -104,5 +109,6 @@ public class PierwiastekRepo extends WebDriverPage{
 
 
     }
-    */
+
 }
+*/

@@ -1,5 +1,5 @@
 package com.s14014.tau.jbhsl;
-
+/*
 
         import org.jbehave.core.Embeddable;
         import org.jbehave.core.configuration.Configuration;
@@ -72,7 +72,8 @@ public class SiteStories extends JUnitStories {
     protected List<String> storyPaths() {
         return new StoryFinder().findPaths(
                 codeLocationFromClass(this.getClass()).getFile(),
-                asList("**/*.story"), null);
+                asList("**/
+/*.story"), null);
     }
 
-}
+} */

@@ -1,13 +1,5 @@
 package com.s14014.tau.selenium;
 /*
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.*;
 
 public class SeleniumTest {
 
@@ -72,7 +69,7 @@ public class SeleniumTest {
     @Before
     public void setUp() throws Exception {
 
-        System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "E:\\chromedriver_win32\\chromedriver.exe");
 
         driver = new ChromeDriver();
         baseUrl = "http://automationpractice.com/index.php";
@@ -259,8 +256,8 @@ public class SeleniumTest {
 }
 
 
-*/
 
+*/
 
 
 

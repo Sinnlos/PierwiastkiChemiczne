@@ -1,4 +1,5 @@
 package com.s14014.tau.jbhsl;
+/*
 import org.jbehave.web.selenium.WebDriverPage;
 import org.jbehave.web.selenium.WebDriverProvider;
 import com.s14014.tau.jbhsl.pages.PierwiastekRepo;
@@ -26,3 +27,4 @@ public class Pages {
         return pierwiastekRepo;
     }
 }
+*/

@@ -1,0 +1,30 @@
+
+<!ELEMENT dataset (
+        PIERWIASTEK*,
+        INVENTOR*,
+        INVENTOR_PIERWIASTEK*)>
+
+        <!ELEMENT PIERWIASTEK EMPTY>
+        <!ATTLIST PIERWIASTEK
+                ID CDATA #REQUIRED
+                NAZWA CDATA #IMPLIED
+                NROKRESU CDATA #IMPLIED
+                NRGRUPY CDATA #IMPLIED
+                LICZBAELEKTRONOW CDATA #IMPLIED
+                METAL CDATA #IMPLIED
+                >
+
+        <!ELEMENT INVENTOR EMPTY>
+        <!ATTLIST INVENTOR
+                ID CDATA #REQUIRED
+                IMIE CDATA #IMPLIED
+                NAZWISKO CDATA #IMPLIED
+                PESEL CDATA #REQUIRED
+                FIRSTINVENTDATE CDATA #IMPLIED
+                >
+
+        <!ELEMENT INVENTOR_PIERWIASTEK EMPTY>
+        <!ATTLIST INVENTOR_PIERWIASTEK
+                PIERWIASTKI_ID CDATA #REQUIRED
+                INVENTOR_ID CDATA #REQUIRED
+                >

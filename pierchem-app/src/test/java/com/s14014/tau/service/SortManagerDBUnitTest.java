@@ -4,22 +4,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
-import org.dbunit.dataset.filter.DefaultColumnFilter;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,7 +43,7 @@ public class SortManagerDBUnitTest {
     SortManager sortManager;
 
     @Test
-    @DatabaseSetup("/fullData.xml")
+    @DatabaseSetup("/fullDatapierwiastki.xml")
     @ExpectedDatabase(value = "/addInventorData.xml",
     assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void addInventorCheck() throws Exception{
@@ -70,7 +64,7 @@ public class SortManagerDBUnitTest {
     }
 
     @Test
-    @DatabaseSetup("/fullData.xml")
+    @DatabaseSetup("/fullDatapierwiastki.xml")
     @ExpectedDatabase(value = "/deleteData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void deleteInventorCheck() throws Exception{
@@ -87,7 +81,7 @@ public class SortManagerDBUnitTest {
 
 
     @Test
-    @DatabaseSetup("/fullData.xml")
+    @DatabaseSetup("/fullDatapierwiastki.xml")
     @ExpectedDatabase(value = "/updateData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void updateInventorCheck() throws Exception{
@@ -108,8 +102,8 @@ public class SortManagerDBUnitTest {
     }
 
     @Test
-    @DatabaseSetup("/fullData.xml")
-    @ExpectedDatabase(value = "/fullData.xml",
+    @DatabaseSetup("/fullDatapierwiastki.xml")
+    @ExpectedDatabase(value = "/fullDatapierwiastki.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void getInventorCheck() throws Exception{
 
@@ -122,7 +116,7 @@ public class SortManagerDBUnitTest {
 
 
     @Test
-    @DatabaseSetup("/fullData.xml")
+    @DatabaseSetup("/fullDatapierwiastki.xml")
     @ExpectedDatabase(value = "/disposePierwiastek.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void disposePerwiastekCheck() throws Exception{
@@ -139,7 +133,7 @@ public class SortManagerDBUnitTest {
     }
 
     @Test
-    @DatabaseSetup("/fullData.xml")
+    @DatabaseSetup("/fullDatapierwiastki.xml")
     @ExpectedDatabase(value = "/pierwiastki.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void getInventorsPierwiastki() throws Exception{

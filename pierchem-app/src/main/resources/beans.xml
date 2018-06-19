@@ -65,3 +65,5 @@
     </bean>
 
 </beans>
+
+<!-- DBUnit + Hibernate + Spring   wszystko co w tym folderze resources  -->

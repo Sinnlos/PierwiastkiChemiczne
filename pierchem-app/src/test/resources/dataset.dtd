@@ -1,30 +1,28 @@
-
 <!ELEMENT dataset (
-        PIERWIASTEK*,
-        INVENTOR*,
-        INVENTOR_PIERWIASTEK*)>
+        UNDEAD*,
+        USER*,
+        USER_UNDEAD*)>
 
-        <!ELEMENT PIERWIASTEK EMPTY>
-        <!ATTLIST PIERWIASTEK
+        <!ELEMENT UNDEAD EMPTY>
+        <!ATTLIST UNDEAD
                 ID CDATA #REQUIRED
-                NAZWA CDATA #IMPLIED
-                NROKRESU CDATA #IMPLIED
-                NRGRUPY CDATA #IMPLIED
-                LICZBAELEKTRONOW CDATA #IMPLIED
-                METAL CDATA #IMPLIED
+                NAME CDATA #IMPLIED
+                ABILITY CDATA #IMPLIED
+                STRENGTH CDATA #IMPLIED
+                HEALTH CDATA #IMPLIED
+                MALE CDATA #IMPLIED
                 >
 
-        <!ELEMENT INVENTOR EMPTY>
-        <!ATTLIST INVENTOR
+        <!ELEMENT USER EMPTY>
+        <!ATTLIST USER
                 ID CDATA #REQUIRED
-                IMIE CDATA #IMPLIED
-                NAZWISKO CDATA #IMPLIED
-                PESEL CDATA #REQUIRED
-                FIRSTINVENTDATE CDATA #IMPLIED
+                USERNAME CDATA #IMPLIED
+                PASSWORD CDATA #IMPLIED
+                PESEL CDATA #IMPLIED
                 >
 
-        <!ELEMENT INVENTOR_PIERWIASTEK EMPTY>
-        <!ATTLIST INVENTOR_PIERWIASTEK
-                PIERWIASTKI_ID CDATA #REQUIRED
-                INVENTOR_ID CDATA #REQUIRED
+        <!ELEMENT USER_UNDEAD EMPTY>
+        <!ATTLIST USER_UNDEAD
+                UNDEADLIST_ID CDATA #REQUIRED
+                USER_ID CDATA #REQUIRED
                 >

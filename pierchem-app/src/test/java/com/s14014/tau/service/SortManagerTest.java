@@ -133,7 +133,7 @@ public class SortManagerTest {
 
 
     @Test
-    @DatabaseSetup("/fullData.xml")
+    @DatabaseSetup("/fullDatapierwiastki.xml")
     @ExpectedDatabase(value = "/addInventorData.xml",
             assertionMode = DatabaseAssertionMode.NON_STRICT)
     public void deletePierwiastekCheck(){
